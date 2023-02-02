@@ -1,9 +1,7 @@
 package com.example.human_resources.controller;
 
-import com.example.human_resources.dto.ThreeLevelsUserDto;
 import com.example.human_resources.model.User;
 import com.example.human_resources.service.UserService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,8 +22,9 @@ public class UsersController {
 	}
 
 	@GetMapping(path = "/supervisor")
-	public ThreeLevelsUserDto getThreeLevelUserByName(@RequestParam("name") String name) throws JsonProcessingException {
-		return userService.retrieveThreeLevelsSupervisor(name);
+	public Map<String, Map> getThreeLevelUserByName(@RequestParam("name") String name,
+													@RequestParam("level") Integer level) throws NotFoundException {
+		return userService.retrieveHierarchyByNameAndLevel(name, level);
 	}
 
 	@PostMapping(path = "")

@@ -11,11 +11,9 @@
 
 package com.example.human_resources.service;
 
-import com.example.human_resources.dto.ThreeLevelsUserDto;
 import com.example.human_resources.model.User;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import javassist.NotFoundException;
-import javassist.tools.web.BadHttpRequest;
 
 import java.util.List;
 import java.util.Map;
@@ -41,5 +39,5 @@ public interface UserService {
      * @return
      * @throws JsonProcessingException
      */
-    ThreeLevelsUserDto retrieveThreeLevelsSupervisor(String name) throws JsonProcessingException;
+    Map<String, Map> retrieveHierarchyByNameAndLevel(String name, Integer level) throws NotFoundException;
 }

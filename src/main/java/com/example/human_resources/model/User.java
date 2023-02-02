@@ -27,11 +27,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-
     @Id
     private String name;
     private String supervisor;
-
-
-
 }
